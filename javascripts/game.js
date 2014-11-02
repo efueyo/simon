@@ -1,13 +1,16 @@
 var sequence = [];
 var seq_index = 0;
 var n_elem = 0;
+var score = 0;
 var _playing = false;
+var _playingAudio = false;
 
 var startGame= function(num_elements){
   console.log("STARTING Game!");
   setNumElements(num_elements);
   resetSequence();
   createNewStep();
+  score = 0;
   _playing = true;
 }
 
@@ -24,11 +27,13 @@ var resetSequence = function(){
 }
 
 var isPlaying = function(){ return _playing == true }
+var isPlayingAudio = function(){ return _playingAudio == true }
 
 var validateElement = function(elem_id){
   expected=sequence[seq_index++]
   var elem_id_num = parseInt(elem_id);
   if(elem_id_num==expected){
+    $("#score").text(score+=5); //5 points of reward
     playAudioFor(elem_id_num, function(){
       if(seq_index==sequence.length){
         seq_index=0;
@@ -72,15 +77,17 @@ var removeAnimatedTileClass = function(element){
   .css('stroke-width', '2');
 }
 
-var is_audio_playing = false
 var playAudioFor = function(elem_index,cb){
+  if(isPlayingAudio())
+    return;
   var audio = audioElements[elem_index];
+  audio.playbackRate=2
   audio.addEventListener('ended',function(){
     audioElements[elem_index] = audio.cloneNode(true);
-    is_audio_playing = false;
+    _playingAudio = false;
     if(typeof cb == 'function')
       cb()
   });
   audio.play();
-  is_audio_playing = true;
+  _playingAudio = true;
 }
