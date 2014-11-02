@@ -1,3 +1,12 @@
+.title{
+  width: 900px;
+  text-align: center;
+}
+#container{
+  margin: auto;
+  width: 900px;
+}
+
 .tile{
   border: 1px solid;
   stroke-opacity: 0.3;
