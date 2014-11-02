@@ -16,6 +16,7 @@ var startGame= function(num_elements){
 
 var stopGame = function(){
   console.log("GAME STOPPED");
+  fail_audio.play();
   _playing = false;
 }
 /* INITIALICERS */

@@ -5,9 +5,11 @@ $(document).ready(function() {
         'audio/pom.mp3','audio/pum.mp3'];
     for(i=0;i<audios.length;i++){
         var audio_elem = document.createElement('audio');
-        audio_elem.setAttribute('src', audios[i]);    
+        audio_elem.setAttribute('src', audios[i]);
         audioElements.push(audio_elem);
     }
+    window.fail_audio = document.createElement('audio');
+    fail_audio.setAttribute('src', 'audio/clap.mp3');
 
     $.get();
 
