@@ -1,0 +1,9 @@
+.tile{
+  border: 1px solid;
+  stroke-opacity: 0.3;
+  stroke-width: 2;
+}
+.tile:hover{  
+  cursor: pointer;
+  fill-opacity:0.65;
+}
