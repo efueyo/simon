@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     window.audioElements=[];
     var audios = ['audio/pam.mp3','audio/pim.mp3',
         'audio/pom.mp3','audio/pum.mp3'];
@@ -17,6 +17,18 @@ $(document).ready(function() {
         var element_id = $(this).attr("element-id");
         if(isPlaying()&& !isPlayingAudio()){
             validateElement(element_id);
+        }
+    })
+});*/
+
+
+
+$(document).ready(function() {
+    window.game = new GameManager(4)
+    $('.tile').click(function(){
+        var element_id = $(this).attr("element-id");
+        if(game.isPlaying()){
+            game.validateElement(parseInt(element_id));
         }
     })
 });

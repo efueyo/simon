@@ -11,8 +11,8 @@
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   
+  <script type="text/javascript" src="javascripts/game_manager.js"></script>
   <script type="text/javascript" src="javascripts/my_script.js"></script>
-  <script type="text/javascript" src="javascripts/game.js"></script>
 
   <title>Simon Game</title>
   <meta name="description" content="">
@@ -28,19 +28,20 @@
       <h1 class="title">Simon Game</h1>
     </header>
     <div id="container">
-      <svg height="210" width="400" id="game_board">
-        <path class="tile" element-id="0" d="M100,75 v-70 a70,70 0 0,0 -70,70 z" stroke="red" fill="#FA4141" />
-        <path class="tile" element-id="1" d="M100,75 h70 a70,70 0 0,0 -70,-70 z" stroke="green" fill="#69D100" />
-        <path class="tile" element-id="2" d="M100,75 v70 a70,70 0 0,0 70,-70 z" stroke="yellow" fill="#FFE445" />
-        <path class="tile" element-id="3" d="M100,75 h-70 a70,70 0 0,0 70,70 z" stroke="blue" fill="#0077FF" />          
-        <circle id="center" cx="100" cy="75" r="6"/>
+      <svg height="310" width="400" id="game_board">
+        <path class="tile" element-id="0" d="M150,175 v-110 a110,110 0 0,0 -110,110 z" stroke="red" fill="#FA4141" />
+        <path class="tile" element-id="1" d="M150,175 h110 a110,110 0 0,0 -110,-110 z" stroke="green" fill="#69D100" />
+        <path class="tile" element-id="2" d="M150,175 v110 a110,110 0 0,0 110,-110 z" stroke="yellow" fill="#FFE445" />
+        <path class="tile" element-id="3" d="M150,175 h-110 a110,110 0 0,0 110,110 z" stroke="blue" fill="#0077FF" />          
+        <circle id="center" cx="150" cy="175" r="6"/>
       </svg>
-      <svg height="210" width="200" id="score_board">
-        <text id="score" x="0" y="110" font-size=80 fill="black">0</text>
-        <text x="40" y="125" fill="black">points!</text>
+      <svg height="200" width="200" id="score_board">
+        <circle id="score_container" cx="100" cy="100" r="90" fill="#CFCFCF"/>
+        <text id="score" x="100" y="120" font-size=80 fill="black" text-anchor="middle">0</text>
+        <text x="125" y="135" fill="black">points!</text>
       </svg>
 
-      <button id="start_game" onclick="startGame(4)">Start!</button>
+      <button id="start_game" onclick="game.start(4)">Start!</button>
     </div>
   </div>
   
